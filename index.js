@@ -152,6 +152,11 @@ Hook.prototype.initialize = function initialize() {
     catch (e) {}
   }, this);
 
+  if (process.platform == "win32") {
+    this.npm = "npm.cmd"
+    this.git = "git.exe"
+  }
+
   //
   // in GUI clients node and npm are not in the PATH so get node binary PATH,
   // add it to the PATH list and try again.
